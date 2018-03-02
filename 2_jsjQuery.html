@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_jQuery</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+        * li{
+            list-style-type: none;
+        }
+        .clearfix:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .div1 .fir-li{
+            background-color: #fffb8b;
+            position: relative;
+            text-align: center;
+        }
+        .div1 > ul > li{
+            float: left;
+            margin-left: 100px;
+            width: 150px;
+            background-color: #fffb8b;
+            text-align: center;
+        }
+        .div1 .fir-li > div{
+            position: absolute;
+            left: -30px;
+            top: 30px;
+            font-size: 12px;
+            background-color: pink;
+            display: none;
+        }
+        .div1 .active div{
+            display: block;
+        }
+        .fir-li a{
+            float: left;
+        }
+        .fir-li img{
+            width: 240px;
+            height: 180px;
+        }
+        .fir-li ul li{
+            margin: 10px;
+            background-color: brown;
+        }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div class="div1">
+        <ul>
+            <li class="fir-li active">
+                <h6>列表第一项的内容</h6>
+                <div>
+                    <p>需要不断的只能总结，练习。总结和练习能让更加理解和熟悉</p>
+                    <div>
+                        <a href="#"><img src="img/1.jpg" title="木叶造型" alt="照片一"></a>
+                        <ul>
+                            <li>01</li>
+                            <li>02</li>
+                            <li>03</li>
+                            <li>04</li>
+                            <li>05</li>
+                            <li>06</li>
+                            <li>07</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="fir-li"><h6>列表第二项的内容</h6>
+                <div>
+                    <p>需要不断的只能总结，练习。总结和练习能让更加理解和熟悉</p>
+                    <div>
+                        <a href="#"><img src="img/2.png" title="木叶造型" alt="照片一"></a>
+                        <ul>
+                            <li>01</li>
+                            <li>02</li>
+                            <li>03</li>
+                            <li>04</li>
+                            <li>05</li>
+                            <li>06</li>
+                            <li>07</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="fir-li"><h6>列表第三项的内容</h6>
+                <div>
+                    <p>需要不断的只能总结，练习。总结和练习能让更加理解和熟悉</p>
+                    <div>
+                        <a href="#"><img src="img/3.jpg" title="木叶造型" alt="照片一"></a>
+                        <ul>
+                            <li>01</li>
+                            <li>02</li>
+                            <li>03</li>
+                            <li>04</li>
+                            <li>05</li>
+                            <li>06</li>
+                            <li>07</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="fir-li"><h6>列表第四项的内容</h6>
+                <div>
+                    <p>需要不断的只能总结，练习。总结和练习能让更加理解和熟悉</p>
+                    <div>
+                        <a href="#"><img src="img/4.jpg" title="木叶造型" alt="照片一"></a>
+                        <ul>
+                            <li>01</li>
+                            <li>02</li>
+                            <li>03</li>
+                            <li>04</li>
+                            <li>05</li>
+                            <li>06</li>
+                            <li>07</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $(".fir-li").mouseover(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    </script>
+</body>
+</html>
