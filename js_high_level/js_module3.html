@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js模块</title>
+    <script src="require.js" defer async="true" >/* async属性表明这个文件需要异步加载，避免网页失去响应
+     //而 ie不支持这个属性，要使用defer
+     */</script>
+</head>
+<body>
+<script>
+    /*
+    * 之前的两个例子是介绍js模型原型和理论概念         当有多个js文件时，我们传统上
+    * 使用script标签依次引入，特别是有依赖时，要有序引入，不能出错
+    * 浏览器在加载这些文件时，会停止渲染，加载文件过多，停止等待时间越长，停止响应时间越长 ，且依赖性最强的要放在最后
+    *
+    *    主要是1:实现js文件的异步加载，避免页面失去响应  管理模块之间的依赖性，便于代码的编写和维护。
+    * */
+    //加载模块需要使用require.js  用script标签引用  但这个也可能会因此加载时间过长的问题。
+    //两种解决办法   一种是把它写在网页的最下面，另一种方法是写成 title标签下面的那种形式  A
+    /*
+    * 加载完require.js后，下一步就要加载我们的代码了，假设我们的代码是main.js,放在当前目录下，
+    * 代码改写为   如下个script标签
+    * */
+</script>
+<script src="require.js" data-main="main">/* data-main指定网页的主模块 main.js就是网页的主模块
+ * 这个模块会第一个被require.js加载，由于require.js加载的文件默认是.js文件，故main.js的后缀名省略。
+ */</script>
+</body>
+</html>

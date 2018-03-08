@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js模块</title>
+</head>
+<body>
+<script>
+    /*
+    *  js模块化编程  当代码量特别多时，一个文件就不够去容纳那么多的代码，需要分成多个文件
+    *  而传统的js文件使用一个个script标签来引入的，而浏览器遇到script标签时，会停止对页面的渲染，
+    *  等待加载完文件在进行渲染页面，这样无疑会导致用户对本项目失去好感。通常解决办法是把js文件放在body最下面。
+    *  等待页面渲染完毕后再加载js文件，进行交互。
+    *  node.js是一个可用于服务器端编程的语言，对于再服务器端进行编程的语言来说，模块化就成了必不可少的部分
+    *  因此CommonJs为node提供了模块化的作用，但js是运行在浏览器上的，与运行在服务器端不同，不能使用CommonJs
+    *  于是AMD出现了，它提供了一个模块化规范require.js.它用来加载写好的js模块，而且是异步加载！
+    * */
+//   模块的概念  就是实现特定功能的一组方法 把几个函数放在一起 ，就可以算是一个模块
+    //但这种方法会污染全局变量，无法看出模块成员之间具体的关系  没办法保证不与其他模块发生变量名冲突
+    function fun1() {
+        console.log("fun1");
+    }
+    function fun2() {
+        console.log("fun2")
+    }
+    //也可以把模块写成一个对象，把所有的模块成员都放在对象里面
+    //当使用这个模块的方法时，就是在调用这个对象的方法
+    // 但这种方法会暴漏模块中的所有成员，并且里面的内部状态会被外部代码重写
+    var module=new Object({                         //例如 module.count=5;
+        count:0,
+        m1:function () {
+            console.log("i am module m1");
+        },
+        m2:function () {
+            console.log("i am module m2");
+        }
+    })
+    console.log(module.m1())
+    console.log(module.m2());
+    //要改变上述缺点，就是用立即执行函数 可以不在暴露内部成员，外部代码也不能在修改内部状态
+    var module2=function () {
+        var count=0;
+        var m3=function () {
+            console.log("m3"+" "+count);
+        }
+        var m4=function () {
+            console.log("m4");
+        }
+        return {
+            m3:m3,
+            m4:m4
+        };          //这种写法就是模块的基本写法，外部代码无法获得或修改内部状态，直接获取就是undefined
+    }()
+</script>
+</body>
+</html>
